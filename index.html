@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PromptSpark — AI Prompt Tools</title>
+<meta name="description" content="Simple AI prompt ideas and tools for creators.">
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f6f7fb;color:#171717}
+header{background:#111827;color:white;padding:18px 6%;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:22px;font-weight:800}.hero{text-align:center;padding:70px 20px;background:linear-gradient(135deg,#111827,#4f46e5);color:white}
+.hero h1{font-size:clamp(34px,7vw,60px);margin:0 0 15px}.hero p{max-width:650px;margin:auto;font-size:18px;line-height:1.6}
+.container{max-width:1050px;margin:auto;padding:45px 20px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.card{background:white;border-radius:18px;padding:25px;box-shadow:0 8px 25px #0000000d}.card h3{margin-top:0}
+button{border:0;border-radius:10px;padding:12px 17px;background:#4f46e5;color:white;font-weight:700;cursor:pointer}
+button:hover{opacity:.9}.prompt{background:#f1f5f9;padding:14px;border-radius:10px;line-height:1.5;margin:15px 0}
+textarea{width:100%;min-height:130px;border:1px solid #d1d5db;border-radius:10px;padding:14px;font-size:15px;resize:vertical}
+footer{text-align:center;padding:30px;background:#111827;color:#cbd5e1;margin-top:30px}
+.note{text-align:center;color:#64748b;margin-top:12px;font-size:14px}
+</style>
+</head>
+<body>
+<header><div class="logo">✨ PromptSpark</div><div>AI Tools for Creators</div></header>
+
+<section class="hero">
+<h1>Create Better AI Prompts</h1>
+<p>Free prompt ideas for TikTok creators, images, videos, stories and social media content.</p>
+</section>
+
+<main class="container">
+<h2>Popular Prompt Ideas</h2>
+<div class="grid">
+<div class="card"><h3>🎨 AI Image</h3><p>Create cinematic and eye-catching image prompts.</p>
+<div class="prompt" id="p1">Create a cinematic, highly detailed scene with dramatic lighting, realistic textures and a strong viral-thumbnail composition.</div>
+<button onclick="copyText('p1')">Copy Prompt</button></div>
+
+<div class="card"><h3>🎬 TikTok Video</h3><p>Generate ideas designed for short-form videos.</p>
+<div class="prompt" id="p2">Write a 20-second TikTok script with a powerful 2-second hook, curiosity, fast pacing and a clear call to action.</div>
+<button onclick="copyText('p2')">Copy Prompt</button></div>
+
+<div class="card"><h3>📖 Viral Story</h3><p>Turn a simple idea into a short story concept.</p>
+<div class="prompt" id="p3">Create a suspenseful 30-second story with a shocking opening, rising tension, a twist ending and a memorable final line.</div>
+<button onclick="copyText('p3')">Copy Prompt</button></div>
+</div>
+
+<h2 style="margin-top:50px">Prompt Improver</h2>
+<div class="card">
+<p>Paste a basic idea below and turn it into a more detailed prompt.</p>
+<textarea id="idea" placeholder="Example: A cat sitting in a city..."></textarea><br><br>
+<button onclick="improve()">Improve My Prompt</button>
+<div class="prompt" id="result">Your improved prompt will appear here.</div>
+</div>
+<p class="note">This demo works in your browser and does not require an account.</p>
+</main>
+
+<footer>© 2026 PromptSpark · Built for creators</footer>
+
+<script>
+function copyText(id){
+  navigator.clipboard.writeText(document.getElementById(id).innerText);
+  alert("Prompt copied!");
+}
+function improve(){
+  const idea=document.getElementById("idea").value.trim();
+  const result=document.getElementById("result");
+  if(!idea){result.innerText="Please enter an idea first.";return;}
+  result.innerText="Create a highly detailed, professional and visually striking version of this idea: "+idea+
+  ". Use cinematic composition, realistic lighting, rich details, natural colors, strong subject focus and a polished social-media-ready presentation.";
+}
+</script>
+</body>
+</html>
